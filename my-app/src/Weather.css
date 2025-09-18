@@ -1,49 +1,122 @@
+/* ===== CARD (Glass minimalista) ========================================= */
 .Weather {
-  font-family: arial, sans-serif;
-  border: 1px solid #dadde1;
-  padding: 16px;
-  border-radius: 4px;
-  color: rgb(135, 135, 135);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.14);
+  color: #444;
 }
 
-.Weather h1 {
-  font-size: 24px;
-  font-weight: 100;
-  margin: 20px 0 0 0;
-  line-height: 29px;
+/* ===== Topo (busca) ===================================================== */
+.Weather .form-control {
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: none;
 }
 
-.Weather ul {
-  margin: 0;
+.Weather .btn-primary {
+  height: 48px;
+  border-radius: 12px;
+  background: #111827;   /* preto grafite */
+  border-color: #111827;
+  font-weight: 600;
+}
+.Weather .btn-primary:hover,
+.Weather .btn-primary:focus {
+  background: #0b1220;
+  border-color: #0b1220;
+}
+
+/* ===== Título e meta ==================================================== */
+.Weather .city-title {
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin: 10px 0 2px;
+}
+
+.Weather .meta {
+  margin: 0 0 6px 0;
   padding: 0;
-}
-
-.Weather li {
-  font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
   list-style: none;
 }
+.Weather .meta li {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.3;
+}
 
+/* ===== Stats (Humidity / Wind) ========================================== */
+.Weather .stats {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.Weather .stats li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(17, 24, 39, 0.035);
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  padding: 12px 14px;
+  border-radius: 14px;
+}
+.Weather .stat-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.Weather .stat-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* ===== Temperatura (direita) ============================================ */
+.Weather .temp-block {
+  gap: 10px;                 /* temp e ícone colados porém respirando */
+}
+.Weather .WeatherTemperature {
+  display: flex;
+  align-items: flex-start;   /* alinha a unidade com o topo do número */
+  gap: 6px;
+}
 .Weather .temperature {
-  font-weight: bold;
-  color: rgb(33, 33, 33);
-  font-size: 64px;
-  line-height: 64px;
-  margin-left: 5px;
-  font-weight: 400;
-  margin-left: 10px;
+  color: #0f172a;
+  font-size: 68px;
+  line-height: 68px;
+  font-weight: 800;
+  margin-left: 0;
 }
-
-.Weather canvas {
-  margin: 10px auto;
-}
-
 .Weather .unit {
-  color: rgb(33, 33, 33);
-  font-size: 16px;
-  font-weight: 400;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 700;
   position: relative;
-  line-height: 1;
-  top: -34px;
+  top: 10px;
+}
+
+/* Ícone sem cores berrantes */
+.Weather canvas {
+  margin: 2px 0 0 0;
+  filter: contrast(1.1) brightness(0.9);
+}
+
+/* ===== Responsivo ======================================================= */
+@media (max-width: 480px) {
+  .Weather { padding: 18px; }
+  .Weather .city-title { font-size: 32px; }
+  .Weather .temperature { font-size: 56px; line-height: 56px; }
+  .Weather .unit { top: -18px; font-size: 16px; }
 }
